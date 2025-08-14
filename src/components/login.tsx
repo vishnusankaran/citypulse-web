@@ -4,11 +4,10 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from './ui/card';
-import { Github, Mountain } from 'lucide-react';
+import { Fingerprint, Github } from 'lucide-react';
 import { useContext, useEffect } from 'react';
 import { UserContext } from '@/context/user';
 import { useNavigate } from 'react-router';
@@ -20,7 +19,7 @@ export const Login = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate('/');
+      navigate('/dashboard');
     }
   }, [isAuthenticated, navigate]);
 
@@ -34,13 +33,35 @@ export const Login = () => {
     }/github/authorize`;
   }
 
+  const handleBiometricLogin = async () => {
+    try {
+      // Note: In a real application, the challenge would be fetched from the server
+      const challenge = new Uint8Array(32);
+      window.crypto.getRandomValues(challenge);
+
+      const credential = await navigator.credentials.get({
+        publicKey: {
+          challenge,
+          timeout: 60000,
+          userVerification: 'preferred',
+          rpId: window.location.hostname,
+        },
+      });
+
+      // In a real application, the credential would be sent to the server for verification
+      console.log('Biometric login successful:', credential);
+      // You would typically navigate to the dashboard or set user as authenticated here
+    } catch (error) {
+      console.error('Biometric login failed:', error);
+    }
+  };
+
   return (
     <div className="container relative h-screen flex-col items-center justify-center grid lg:max-w-none lg:grid-cols-2 lg:px-0">
       <div className="relative hidden h-full flex-col bg-muted p-10 text-white lg:flex dark:border-r">
         <div className="absolute inset-0 bg-zinc-900" />
         <div className="relative z-20 flex items-center gap-2 text-lg font-bold">
-          <Mountain className="h-6 w-6" />
-          <span>Buzooka</span>
+          <span className="text-2xl font-bold tracking-tight">CityPulse</span>
         </div>
         <div className="relative z-20 mt-auto">
           <blockquote className="space-y-2">
@@ -77,6 +98,12 @@ export const Login = () => {
               </form>
             </CardContent>
           </Card>
+          <div className="flex flex-col items-center justify-center space-y-2">
+            <p className="text-sm text-muted-foreground mb-16 mt-12">
+              Or sign in with
+            </p>
+            <Fingerprint size={'64'} onClick={handleBiometricLogin} />
+          </div>
         </div>
       </div>
     </div>
