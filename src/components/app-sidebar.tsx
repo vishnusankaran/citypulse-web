@@ -162,7 +162,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             >
               <a href="#" className="flex items-center gap-2">
                 <Mountain className="h-6 w-6" />
-                <span className="text-base font-semibold">Buzooka</span>
+                <span className="text-base font-semibold">CityPulse</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
