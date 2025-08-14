@@ -42,9 +42,9 @@ export const EventDetails = () => {
       setLoading(true);
       const fetchEvent = async () => {
         try {
-          const apiKey = 'gcsYbSYzfVJvD4LAFevXycQG0Abh7a1k'; // Replace with your actual API key
+          const ticketmaster = 'gcsYbSYzfVJvD4LAFevXycQG0Abh7a1k';
           const response = await fetch(
-            `https://app.ticketmaster.com/discovery/v2/events/${eventId}.json?apikey=${apiKey}`
+            `https://app.ticketmaster.com/discovery/v2/events/${eventId}.json?apikey=${ticketmaster}`
           );
           if (!response.ok) {
             throw new Error('Event not found');

@@ -14,10 +14,10 @@ export const EventsProvider = ({ children }: { children: React.ReactNode }) => {
       setSearching(true);
       const fetchEvents = async () => {
         try {
-          const apiKey = 'gcsYbSYzfVJvD4LAFevXycQG0Abh7a1k';
+          const tickermaster = 'gcsYbSYzfVJvD4LAFevXycQG0Abh7a1k';
           const cityParam = city ? `&city=${city}` : '';
           const response = await fetch(
-            `https://app.ticketmaster.com/discovery/v2/events.json?keyword=${debouncedSearchTerm}${cityParam}&apikey=${apiKey}`
+            `https://app.ticketmaster.com/discovery/v2/events.json?keyword=${debouncedSearchTerm}${cityParam}&apikey=${tickermaster}`
           );
           const data = await response.json();
           setEvents(data._embedded?.events || []);
