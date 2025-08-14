@@ -31,7 +31,9 @@ export function SiteHeader() {
   return (
     <header
       dir="ltr"
-      className="bg-white fixed bottom-0 left-0 right-0 flex items-center justify-between px-8 py-6 border-b w-full border-1 border-gray-100"
+      className={`bg-white fixed bottom-0 left-0 right-0 items-center justify-between px-8 py-6 border-b w-full border-1 border-gray-100 flex lg:${
+        !user ? 'hidden' : 'flex'
+      }`}
     >
       <div className="w-24">
         <ToggleRadioGroup
@@ -51,7 +53,7 @@ export function SiteHeader() {
       </div>
       <div className="flex items-center justify-center gap-2 grow flex-1">
         <h1
-          className="text-2xl font-bold tracking-tight"
+          className="text-2xl font-bold tracking-tight cursor-pointer"
           onClick={() => navigate('/')}
         >
           CityPulse

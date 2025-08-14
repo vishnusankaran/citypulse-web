@@ -24,7 +24,9 @@ export const ToggleRadioGroup = ({ options, value, onValueChange }) => {
             }}
             variant="outline"
             aria-label={option.label}
-            className={`rounded-none ${
+            className={`cursor-pointer rounded-none ${
+              selectedValue !== option.value ? 'bg-white' : ''
+            } ${
               isFirst
                 ? 'rounded-l-md'
                 : isLast

@@ -138,7 +138,7 @@ END:VCALENDAR
       className="bg-white dark:bg-gray-900 min-h-screen"
       dir={language === 'ar' ? 'rtl' : 'ltr'}
     >
-      <div className="container mx-auto">
+      <div className="max-w-220 mx-auto">
         <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden">
           <div className="relative">
             {imageUrl && (

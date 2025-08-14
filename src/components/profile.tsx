@@ -21,13 +21,17 @@ export function Profile() {
       <h1 className="text-2xl font-bold mb-4">Profile</h1>
       {user && (
         <div className="mb-4">
-          <p className="text-lg">Name: {user.data.name}</p>
-          <p className="text-lg">Email: {user.data.email}</p>
+          {user?.data?.name && (
+            <p className="text-lg">Name: {user.data.name}</p>
+          )}
+          {user?.data?.email && (
+            <p className="text-lg">Email: {user.data.email}</p>
+          )}
         </div>
       )}
       <div>
         <h2 className="text-xl font-bold mb-2">Favorited Events</h2>
-        <div className="flex flex-col gap-6 overflow-y-auto grow px-2">
+        <div className="flex flex-col gap-6 overflow-y-auto grow px-2 lg:flex-wrap lg:flex-row">
           {favoritedEvents.length > 0 ? (
             favoritedEvents.map((event: any) => (
               <Card

@@ -63,15 +63,6 @@ export const Login = () => {
         <div className="relative z-20 flex items-center gap-2 text-lg font-bold">
           <span className="text-2xl font-bold tracking-tight">CityPulse</span>
         </div>
-        <div className="relative z-20 mt-auto">
-          <blockquote className="space-y-2">
-            <p className="text-lg">
-              "This platform has completely transformed how we handle our
-              business operations."
-            </p>
-            <footer className="text-sm">Sofia Davis</footer>
-          </blockquote>
-        </div>
       </div>
       <div className="lg:p-8">
         <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">

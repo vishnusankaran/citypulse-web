@@ -44,13 +44,13 @@ export const Dash = () => {
   return (
     <div className="flex flex-1 flex-col grow h-full">
       <div className="@container/main flex flex-1 flex-col gap-4 p-4 grow">
-        <div className="flex grow overflow-scroll h-0">
-          <div className="flex flex-col gap-6 overflow-y-auto grow px-2">
+        <div className="flex grow overflow-auto h-0">
+          <div className="flex flex-col gap-6 overflow-y-auto grow px-2 lg:flex-wrap lg:flex-row">
             {events.length > 0 ? (
               events.map((event: any) => (
                 <Card
                   key={event.id}
-                  className="py-0  gap-0"
+                  className="py-0 gap-0"
                   onClick={() => handleCardClick(event.id)}
                 >
                   <div className="relative rounded-md overflow-hidden shadow-lg">
@@ -95,7 +95,10 @@ export const Dash = () => {
             )}
           </div>
         </div>
-        <div dir="ltr" className="flex w-full max-w-md gap-2">
+        <div
+          dir="ltr"
+          className="flex w-full max-w-md gap-2 lg:justify-center lg:items-center"
+        >
           <Input
             className="w-full h-12"
             placeholder="Search..."
