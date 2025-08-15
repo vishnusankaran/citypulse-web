@@ -14,7 +14,7 @@ import { ToggleRadioGroup } from '@/components/toggle-radio-group';
 import { LocalStorageContext } from '@/context/local-storage';
 
 export function SiteHeader() {
-  const { user, logout } = React.useContext(UserContext);
+  const { user, logout, isAuthenticated } = React.useContext(UserContext);
   const { language, setLanguage } = React.useContext(LocalStorageContext);
   const navigate = useNavigate();
 
@@ -31,9 +31,10 @@ export function SiteHeader() {
   return (
     <header
       dir="ltr"
-      className={`bg-white fixed bottom-0 left-0 right-0 items-center justify-between px-8 py-6 border-b w-full border-1 border-gray-100 flex lg:${
-        !user ? 'hidden' : 'flex'
-      }`}
+      className={`bg-white fixed bottom-0 left-0 right-0 items-center justify-between px-8 py-6 border-b w-full border-1 border-gray-100 flex lg:hidden`}
+      style={{
+        display: isAuthenticated ? 'flex' : 'none',
+      }}
     >
       <div className="w-24">
         <ToggleRadioGroup
