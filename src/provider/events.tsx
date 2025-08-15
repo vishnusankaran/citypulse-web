@@ -14,6 +14,7 @@ export const EventsProvider = ({ children }: { children: React.ReactNode }) => {
       setSearching(true);
       const fetchEvents = async () => {
         try {
+          // Hardcoded the Ticketmaster API key for easy demo setup.
           const tickermaster = 'gcsYbSYzfVJvD4LAFevXycQG0Abh7a1k';
           const cityParam = city ? `&city=${city}` : '';
           const response = await fetch(

@@ -42,6 +42,7 @@ export const EventDetails = () => {
       setLoading(true);
       const fetchEvent = async () => {
         try {
+          // Hardcoded the Ticketmaster API key for easy demo setup.
           const ticketmaster = 'gcsYbSYzfVJvD4LAFevXycQG0Abh7a1k';
           const response = await fetch(
             `https://app.ticketmaster.com/discovery/v2/events/${eventId}.json?apikey=${ticketmaster}`
